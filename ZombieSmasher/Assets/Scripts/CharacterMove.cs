@@ -11,6 +11,11 @@ public class CharacterMove : MonoBehaviour
     [SerializeField] private CapsuleCollider2D colider;
     [SerializeField] private GameObject[] sprites;
 
+    private void Start()
+    {
+        OnInitializeZombie();
+    }
+
     void Update()
     {
         OnMove();
