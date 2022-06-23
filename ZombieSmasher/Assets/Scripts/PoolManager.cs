@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance;
-    public EnemysPool[] myPool;
+    
+    [SerializeField]public EnemysPool[] myPool;
 
 
     private void Awake()
@@ -15,6 +17,12 @@ public class PoolManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        CreateObject(5, 0);
+        CreateObject(5, 1);
     }
 
     void CreateObject(int quantity, int indexPool)
@@ -28,19 +36,26 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+
     public GameObject GetPoolObject(int indexPool)
     {
         for (int i = 0; i < myPool[indexPool]._enemys.Count; i++)
         {
             if (!myPool[indexPool]._enemys[i].gameObject.activeSelf)
             {
-                myPool[indexPool]._enemys[i].GetComponent;
-
+                myPool[indexPool]._enemys[i].SetActive(true);
+                myPool[indexPool]._enemys[i].GetComponent<CharacterMove>().OnInitializeZombie();
+                return myPool[indexPool]._enemys[i];
             }
-        }    
-    }
+        }
+        CreateObject(1, indexPool);
+        myPool[indexPool]._enemys[myPool[indexPool]._enemys.Count - 1].SetActive(true);
+        myPool[indexPool]._enemys[myPool[indexPool]._enemys.Count - 1].GetComponent<CharacterMove>().OnInitializeZombie();
+        return myPool[indexPool]._enemys[myPool[indexPool]._enemys.Count - 1];
+    }    
 }
 
+[Serializable]
 public class EnemysPool
 {
     public string _name;

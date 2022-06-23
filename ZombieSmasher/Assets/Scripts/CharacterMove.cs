@@ -50,5 +50,4 @@ public class CharacterMove : MonoBehaviour
             sprites[i].gameObject.SetActive(i == index);
         }
     }
-
 }

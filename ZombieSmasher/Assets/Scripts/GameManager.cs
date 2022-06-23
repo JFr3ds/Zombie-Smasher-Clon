@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameState.Play:
-                //WaveController.Instance.
+                WaveController.Instance.OnStartWave();
                 break;
             case GameState.GameOver:
 
