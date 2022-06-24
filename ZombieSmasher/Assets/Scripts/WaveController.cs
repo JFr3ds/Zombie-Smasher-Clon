@@ -62,8 +62,6 @@ public class WaveController : MonoBehaviour
                     yield return new WaitForSeconds(ratio);
                 }
                 break;
-
         }
     }
-
 }

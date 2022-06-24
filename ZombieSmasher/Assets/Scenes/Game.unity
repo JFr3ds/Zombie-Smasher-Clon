@@ -264,7 +264,7 @@ MonoBehaviour:
   - {fileID: 1786574232}
   - {fileID: 666193657}
   waveIndex: 3
-  ratio: 0.5
+  ratio: 0
   movementSpeed: 1
 --- !u!1 &316551171
 GameObject:
