@@ -11,8 +11,13 @@ public class CharacterMove : MonoBehaviour
     [SerializeField] private CapsuleCollider2D colider;
     [SerializeField] private GameObject[] sprites;
 
+    public GameObject personaje;
+    public GameObject explosion;
+
     private void Start()
     {
+        personaje.SetActive(true);
+        explosion.SetActive(false);
         OnInitializeZombie();
     }
 
@@ -28,6 +33,7 @@ public class CharacterMove : MonoBehaviour
         {
             OnSetSpriteRenderer(1);
             speedMovement = 0;
+            colider.enabled = false;
         }
     }
     public void OnInitializeZombie()
@@ -44,7 +50,7 @@ public class CharacterMove : MonoBehaviour
     }
 
     void OnSetSpriteRenderer(int index)
-    {
+    {   
         for (int i = 0; i < sprites.Length; i++)
         {
             sprites[i].gameObject.SetActive(i == index);

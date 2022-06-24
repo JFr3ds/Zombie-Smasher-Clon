@@ -67,9 +67,9 @@ MonoBehaviour:
   maxTapCount: 1
   actualTapCount: 0
   colider: {fileID: 4473669264740446622}
-  sprites:
-  - {fileID: 1830945124046358446}
-  - {fileID: 7935323552839998201}
+  sprites: []
+  personaje: {fileID: 1830945124046358446}
+  explosion: {fileID: 7935323552839998201}
 --- !u!1001 &3304007917901195265
 PrefabInstance:
   m_ObjectHideFlags: 0
